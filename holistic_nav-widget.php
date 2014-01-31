@@ -35,32 +35,31 @@ class Holistic_Nav_Widget extends WP_Widget {
 		if ( $title )
 			echo $before_title . $title . $after_title;
 		echo '<div class="holistic_nav">';
-//		echo '<div class="tagcloud">';
 
 		$state = array();
 		$state = wp_holistic_nav( '' );
 
 ?>
-                        <div id="holistic_nav" style="color: red;"> 
+                        <div id="holistic_nav"> 
 
 			<?php if($state["activated"]) { ?>
                         <br> ETIQUETAS ACTIVADAS: <br> <?php echo $state["activated"]; ?>
 			 <?php } ?>
 
-                        <br> < lista de <?php echo $state["cardinality"]; ?> posteos filtrados
+                        <br> <?php echo "<font color='#003200'> <-- hay ". $state['cardinality']. " posteos indicados </font>"; ?>
                         __________________________
                         </div>
 
 			<?php if($state["implied"]) { ?>
-                        <div id="holistic_nav" style="color: orange;"> 
+                        <div id="holistic_nav"> 
                         <br> ETIQUETAS IMPLICADAS: <br> <?php echo $state["implied"]; ?>
                         __________________________
                         </div>
 			 <?php } ?>
 
 			<?php if($state["cutting"]) { ?>
-                        <div id="holistic_nav" style="color: green;">
-                        <br> ETIQUETAS HABILITADAS: <br> <?php echo $state["cutting"]; ?>
+                        <div id="holistic_nav">
+                        <br> ETIQUETAS SUGERIDAS: <br> <?php echo $state["cutting"]; ?>
                         __________________________
                         </div>
 			 <?php } ?>
